@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: flex-end; /* Align content to the right */
+    align-items: flex-end; /* Align content to the bottom */
+    height: 100vh;
+    background-color: #f0f0f0;
+    padding: 20px; /* Add some padding around the body */
+}
+
+.mentor-list {
+    max-width: 390px;
+}
+
+.mentor-card {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mentor-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.mentor-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.mentor-header h3 {
+    margin: 0;
+    margin-right: 10px;
+}
+
+.mentor-rating {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.rating-icon {
+    color: gold;
+    margin-right: 5px;
+}
+
+.mentor-techstack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-badge {
+    padding: 5px 15px;
+    border-radius: 20px;
+    background-color: #e0e0e0;
+    font-size: 0.85em;
+    color: #333;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+.scroll-container {
+    width: 415px;
+    height: 888px; /* Consider adjusting this based on your layout */
+    overflow: hidden;
+    position: relative;
+}
+
+.scroll-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    animation: scrollUp 40s linear infinite; /* Continuous scroll */
+}
+
+@keyframes scrollUp {
+    0% {
+      transform: translateY(100%); /* Start from bottom */
+    }
+    100% {
+      transform: translateY(-100%); /* Move to the top */
+    }
+}
+
+.scroll-content p {
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+}
