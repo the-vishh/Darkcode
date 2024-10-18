@@ -2,8 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color:  #132c55; /* Blue background for the whole page */
-    color: white; /* Text color set to white for better contrast */
+    background-color:  #132c55; 
+    color: white; 
 }
 
 .header-section {
@@ -19,9 +19,9 @@ body {
 
 .sub-heading {
     color: white;
-    font-size: 2.5rem; /* Match this size to the h1 */
+    font-size: 2.5rem; 
     margin-top: 0.5rem;
-    font-weight: normal; /* If you want it to look more like a sub-heading, keep normal weight */
+    font-weight: normal; 
 }
 
 .header-section p {
@@ -32,24 +32,24 @@ body {
     text-align: center;
     margin-top: 1rem;
     color: white;
-    font-size: 1.3rem; /* Increase the size to 1.5rem or adjust as needed */
+    font-size: 1.3rem; 
     width: 100%;
 }
 
 .center-paragraph {
-    text-align: center; /* Centers the text */
+    text-align: center; 
     margin-top: 1rem;
-    color: black; /* If you want to match the background */
-    font-size: 1.2rem; /* Adjust font size if needed */
-    width: 100%; /* Ensure full width */
-    line-height: 1.5; /* Adjust the spacing between lines */
+    color: black; 
+    font-size: 1.2rem; 
+    width: 100%; 
+    line-height: 1.5; 
 }
 
 .cards-section {
     display: flex;
     justify-content: space-around;
     padding: 2rem;
-    background-color: #1a2b4b; /* Matches the body background */
+    background-color: #1a2b4b; 
 }
 
 .card {
