@@ -1,0 +1,53 @@
+/* General body styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+/* Styling the banner */
+.banner {
+    background-color: #1b2e53; /* Navy blue background */
+    color: white;
+    text-align: center;
+    padding: 130px 200px;
+    border-radius: 20px;
+    max-width: 1200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Main headline styling */
+.banner h1 {
+    font-size: 35px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: azure;
+}
+
+/* Subtext styling */
+.banner p { 
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: white; /* Light grey text */
+}
+
+/* Button styling */
+.btn {
+    background-color: #20a56b; /* Green button */
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+.btn:hover {
+    background-color: #178a59; /* Darker green on hover */
+}
