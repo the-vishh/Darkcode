@@ -7,11 +7,11 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: flex-end; /* Align content to the right */
-    align-items: flex-end; /* Align content to the bottom */
+    justify-content: flex-end; 
+    align-items: flex-end; 
     height: 100vh;
     background-color: #f0f0f0;
-    padding: 20px; /* Add some padding around the body */
+    padding: 20px; 
 }
 
 .mentor-list {
@@ -74,7 +74,7 @@ body {
 
 .scroll-container {
     width: 415px;
-    height: 888px; /* Consider adjusting this based on your layout */
+    height: 888px; 
     overflow: hidden;
     position: relative;
 }
@@ -84,15 +84,15 @@ body {
     flex-direction: column;
     position: absolute;
     bottom: 0;
-    animation: scrollUp 40s linear infinite; /* Continuous scroll */
+    animation: scrollUp 40s linear infinite; 
 }
 
 @keyframes scrollUp {
     0% {
-      transform: translateY(100%); /* Start from bottom */
+      transform: translateY(100%); 
     }
     100% {
-      transform: translateY(-100%); /* Move to the top */
+      transform: translateY(-100%); 
     }
 }
 
