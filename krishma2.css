@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+.black-span {
+  background-color: rgba(233, 233, 233, 0.897);
+  color: rgb(27, 27, 27);
+  padding: 20px;
+  margin: 20px auto;
+  height: 550px;
+  width: 650px;
+  border-radius: 10px;
+}
+
+.black-span h1 {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.black-span pre {
+  font-size: 20px;
+  font-family: 'Playfair Display', serif;
+  white-space: pre-wrap;
+  text-align: left;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.features-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.features-list {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.features-left {
+  margin-right: 40px;
+}
+
+.features-right {
+  margin-left: 20px;
+}
+
+.features-list li {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.features-list li::before {
+  content: '• ';
+  color: #11af46;
+  font-weight: bold;
+}
+
+.find-mentor-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.find-mentor-button {
+  background-color: #0a8b35;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.find-mentor-button:hover {
+  background-color: #035720;
+}
+
+.arrow {
+  margin-left: 5px;
+  font-size: 18px;
+}
