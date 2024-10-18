@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor Booking System</title>
+  <!-- Link to the CSS file -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Mentor List -->
+  <div id="mentor-list">
+    <h2>Available Mentors</h2>
+    
+    <div class="mentor">
+      <h3>John Doe</h3>
+      <p class="status">Available: 10 AM - 12 PM</p>
+      <button onclick="bookSession('John Doe')">Book</button>
+    </div>
+
+    <div class="mentor">
+      <h3>Jane Smith</h3>
+      <p class="status">Available: 2 PM - 4 PM</p>
+      <button onclick="bookSession('Jane Smith')">Book</button>
+    </div>
+  </div>
+
+  <!-- Booking Confirmation Modal -->
+  <div id="confirmation-modal" style="display:none;">
+    <p id="confirmation-text">Booking confirmed!</p>
+    <button onclick="closeModal()">Close</button>
+  </div>
+
+  <!-- Link to the JavaScript file -->
+  <script src="pixel.js"></script>
+</body>
+</html>
