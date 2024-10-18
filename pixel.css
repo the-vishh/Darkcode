@@ -1,0 +1,67 @@
+body {
+  display: flex; /* Use flexbox for body layout */
+  justify-content: flex-end; /* Align content to the right */
+  margin: 0; /* Remove default body margin */
+  padding: 20px; /* Add some padding around the body */
+  background-color: #f0f0f0; /* Optional: Background color for the body */
+}
+
+.mentor-list {
+  max-width: 390px; /* Optional: Set a max width for the list */
+  margin-left: auto; /* Push the list to the right */
+}
+
+.mentor-card {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  margin: 10px 0; /* Add some margin between cards */
+  padding: 20px; /* Add padding inside the card */
+  border: 1px solid #ccc; /* Optional: Add a border */
+  border-radius: 15px; /* Optional: Round corners */
+  background-color: #f9f9f9; /* Optional: Background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+}
+
+.mentor-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.mentor-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.mentor-header h3 {
+  margin: 0;
+  margin-right: 10px; /* Space between name and rating */
+}
+
+.mentor-rating {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em; /* Slightly smaller font for rating */
+}
+
+.rating-icon {
+  color: gold;
+  margin-right: 5px;
+}
+
+/* Styling the tech stack as ovals */
+.mentor-techstack {
+  display: flex;
+  flex-wrap: wrap; /* Allow tech stacks to wrap */
+  gap: 10px; /* Space between tech stacks */
+}
+
+.tech-badge {
+  padding: 5px 15px; /* Add padding for the oval shape */
+  border-radius: 20px; /* Rounded corners for oval shape */
+  background-color: #e0e0e0; /* Background color for the badge */
+  font-size: 0.85em; /* Slightly smaller font size */
+  color: #333; /* Text color */
+  display: inline-block;
+  margin: 5px 0; /* Small margin for spacing */
+}
