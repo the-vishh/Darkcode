@@ -1,6 +1,6 @@
 const mentors = [
     { name: 'Birmohan Singh', rating: '5.0', techStack: ['JavaScript', 'HTML', 'CSS'] },
-    { name: 'Damanpreet Singh', rating: '4.5', techStack: ['Python', 'Machine Learning'] },
+    { name: 'Damanpreet Singh', rating: '4.8', techStack: ['Python', 'Machine Learning'] },
     { name: 'Singh Goraya', rating: '5.0', techStack: ['React', 'HTML', 'NodeJS'] },
     { name: 'Manoj Sachan', rating: '5.0', techStack: ['Frontend', 'Javascript', 'Typescript'] },
     { name: 'Amar Nath', rating: '4.9', techStack: ['Data Engineering', 'AWS', 'Data Analytics'] },
