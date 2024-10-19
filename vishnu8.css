@@ -1,10 +1,9 @@
-/* General Page Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: white;
-    color: black; /* Changed to black for better visibility */
+    color: black; 
 }
 
 .header-section {
@@ -37,6 +36,7 @@ body {
     width: 100%;
 }
 
+
 .center-paragraph {
     text-align: center;
     margin-top: 1rem;
@@ -46,7 +46,6 @@ body {
     line-height: 1.5;
 }
 
-/* Card Section and Card Styles */
 .cards-section {
     display: flex;
     justify-content: space-around;
@@ -61,10 +60,10 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 25%;
-    text-align: center; /* Center content in the card */
+    text-align: center; 
 }
 
-/* Oval Image Container */
+
 .oval-image {
     width: 100px;
     height: 100px;
@@ -75,7 +74,7 @@ body {
     border: 3px solid #ddd;
 }
 
-/* Mentor Image (inside oval) */
+
 .mentor-image {
     width: 100%;
     height: 100%;
@@ -96,23 +95,23 @@ body {
     font-weight: bold;
 }
 
-/* Styles for the oval-shaped pricing tags */
+
 .oval-price {
     display: inline-block;
     background-color: white;
     color: #333;
     padding: 0.5rem 1.5rem;
-    border-radius: 50px;  /* Creates the oval shape */
+    border-radius: 50px;  
     font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 1rem;  /* Adds space between the ovals */
+    margin-bottom: 1rem;  
     text-align: center;
-    border: 2px solid #ddd;  /* Optional: Add a subtle border for better visibility */
+    border: 2px solid #ddd;  
 }
 
-/* Button Styles */
+
 button {
-    background-color: #4cafeb; /* Change to your desired color */
+    background-color: #4cafeb; 
     color: #fff;
     border: none;
     padding: 0.75rem 1rem;
@@ -122,17 +121,17 @@ button {
 }
 
 button:hover {
-    background-color: #3e8e41; /* Change hover color */
+    background-color: #3e8e41; 
 }
 
 .mentorship-button {
-    display: inline-block; /* Allows centering */
-    margin-top: 1rem; /* Add some margin above the button */
+    display: inline-block; 
+    margin-top: 1rem; 
 }
 
 .more-button {
     display: block;
-    margin: 2rem auto; /* Center it horizontally */
+    margin: 2rem auto;
     padding: 1rem 2rem;
     background-color: #178a59;
     border-radius: 4px;
@@ -140,9 +139,9 @@ button:hover {
     color: #fff;
     border: none;
     cursor: pointer;
-    text-align: center; /* Center text */
+    text-align: center; 
 }
 
 .more-button:hover {
-    background-color: #158a58; /* Slightly darker hover effect */
+    background-color: #158a58; 
 }
