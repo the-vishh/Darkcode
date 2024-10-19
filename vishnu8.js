@@ -1,4 +1,3 @@
-// Sample data for each mentor's pricing
 const pricingData = {
     ayla: [
         { label: "Mentorship", price: "$150/month" },
@@ -20,7 +19,6 @@ const pricingData = {
     ]
 };
 
-// Function to create and insert oval price tags dynamically
 function addPriceTags(mentor, pricing) {
     const card = document.querySelector(`.card.${mentor}`);
     pricing.forEach(item => {
@@ -31,7 +29,6 @@ function addPriceTags(mentor, pricing) {
     });
 }
 
-// Adding the price tags for each mentor
 addPriceTags('ayla', pricingData.ayla);
 addPriceTags('francois', pricingData.francois);
 addPriceTags('annie', pricingData.annie);
