@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentorship Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #ffffff;
+            position: relative;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Style for the Top Text */
+        .top-text {
+            color: #19034d;
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .static-txt {
+            color: #19034d;
+            font-size: 60px;
+            font-weight: 400;
+            display: block;
+        }
+
+        .main .animation-txts {
+            margin-top: 10px;
+            height: 90px;
+            line-height: 90px;
+            overflow: hidden;
+        }
+
+        .animation-txts li {
+            list-style: none;
+            color: #11af46;
+            font-size: 60px;
+            font-weight: 500;
+            position: relative;
+            top: 0;
+            animation: slide 12s steps(4) infinite;
+        }
+
+        @keyframes slide {
+            100% {
+                top: -360px;
+            }
+        }
+
+        .animation-txts li span {
+            position: relative;
+            margin: 5px 0;
+            line-height: 90px;
+        }
+
+        .animation-txts li span::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: #ffffff;
+            border-left: 2px solid #11af46;
+            animation: typing 3s steps(10) infinite;
+        }
+
+        @keyframes typing {
+            40%, 60% {
+                left: calc(100% + 30px);
+            }
+            100% {
+                left: 0;
+            }
+        }
+
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            border-radius: 30px;
+        }
+
+        .find-btn {
+            background-color: #11af46;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 30px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .find-btn:hover {
+            background-color: #0f9d3a;
+            transform: scale(1.05);
+        }
+
+        .find-btn:focus {
+            outline: 2px solid #0f9d3a;
+        }
+
+        .categories {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .styled-text {
+            background-color: #cccacae7;
+            color: rgb(65, 63, 63);
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 30px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .icons-container {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .fa {
+            font-size: 100px;
+            color: rgb(61, 60, 60);
+        }
+
+        .login-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #11af46;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #0f9d3a;
+        }
+
+        /* Mentor List Styles */
+        .scroll-container {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        .scroll-content {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 0;
+            animation: scrollUp 40s linear infinite;
+        }
+
+        @keyframes scrollUp {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .mentor-card {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mentor-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mentor-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .mentor-header h3 {
+            margin: 0;
+            margin-right: 10px;
+        }
+
+        .mentor-rating {
+            display: flex;
+            align-items: center;
+            font-size: 0.9em;
+        }
+
+        .rating-icon {
+            color: gold;
+            margin-right: 5px;
+        }
+
+        .mentor-techstack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            background-color: #e0e0e0;
+            font-size: 0.85em;
+            color: #333;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        /* Chat Box Styles */
+        .chat-box {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            max-height: 400px;
+            overflow-y: auto; /* Enable scrolling */
+        }
+
+        .chat-header {
+            background: #11af46;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .chat-messages {
+            padding: 10px;
+            flex-grow: 1;
+            overflow-y: auto; /* Enable scrolling for messages */
+        }
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            border: none;
+            padding: 10px;
+        }
+
+        .chat-input button {
+            background: #11af46;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Notification Styles */
+        .notification-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: #11af46;
+            cursor: pointer;
+        }
+
+        .notification-box {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: white;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .notification-header {
+            padding: 10px;
+            background: #11af46;
+            color: white;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .notification-content {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button class="login-btn">Login</button>
+    <div class="main">
+        <p class="top-text">What would you like to learn?</p>
+
+        <div class="content">
+            <span class="static-txt">Find a</span>
+            <ul class="animation-txts">
+                <li><span>Mentor</span></li>
+                <li><span>Coach</span></li>
+                <li><span>Guide</span></li>
+                <li><span>Expert</span></li>
+            </ul>
+        </div>
+
+        <!-- Mentor Search Bar and Buttons -->
+        <div class="search-container">
+            <input type="text" placeholder="Search Mentor" class="search-bar">
+            <button class="find-btn">Find Mentor</button>
+        </div>
+
+        <!-- Mentor Listing Section -->
+        <div class="scroll-container">
+            <div class="scroll-content">
+                <!-- Mentor Card Example -->
+                <div class="mentor-card">
+                    <div class="mentor-details">
+                        <div class="mentor-header">
+                            <h3>John Doe</h3>
+                            <div class="mentor-rating">
+                                <span class="rating-icon">★</span>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        <p>Expert in Full-stack Development</p>
+                        <div class="mentor-techstack">
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mentor-card">
+                    <div class="mentor-details">
+                        <div class="mentor-header">
+                            <h3>Jane Smith</h3>
+                            <div class="mentor-rating">
+                                <span class="rating-icon">★</span>
+                                <span>5.0</span>
+                            </div>
+                        </div>
+                        <p>Data Scientist & AI Specialist</p>
+                        <div class="mentor-techstack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">TensorFlow</span>
+                            <span class="tech-badge">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more mentors here -->
+            </div>
+        </div>
+
+        <!-- Chat Box -->
+        <div class="chat-box">
+            <div class="chat-header">Chat with Mentor</div>
+            <div class="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message...">
+                <button>Send</button>
+            </div>
+        </div>
+
+        <!-- Notification Icon -->
+        <i class="fa fa-bell notification-icon"></i>
+        <div class="notification-box">
+            <div class="notification-header">Notifications</div>
+            <div class="notification-content">
+                <p>No new notifications</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to toggle chat box visibility
+        const notificationIcon = document.querySelector('.notification-icon');
+        const notificationBox = document.querySelector('.notification-box');
+        notificationIcon.addEventListener('click', () => {
+            notificationBox.style.display = notificationBox.style.display === 'block' ? 'none' : 'block';
+        });
+    </script>
+</body>
+</html>

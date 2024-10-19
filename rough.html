@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentorship Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            background: #ffffff;
+            position: relative;
+            padding: 20px;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Style for the Top Text */
+        .top-text {
+            color: #19034d;
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .static-txt {
+            color: #19034d;
+            font-size: 60px;
+            font-weight: 400;
+            display: block;
+        }
+
+        .main .animation-txts {
+            margin-top: 10px;
+            height: 90px;
+            line-height: 90px;
+            overflow: hidden;
+        }
+
+        .animation-txts li {
+            list-style: none;
+            color: #11af46;
+            font-size: 60px;
+            font-weight: 500;
+            position: relative;
+            top: 0;
+            animation: slide 12s steps(4) infinite;
+        }
+
+        @keyframes slide {
+            100% {
+                top: -360px;
+            }
+        }
+
+        .animation-txts li span {
+            position: relative;
+            margin: 5px 0;
+            line-height: 90px;
+        }
+
+        .animation-txts li span::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: #ffffff;
+            border-left: 2px solid #11af46;
+            animation: typing 3s steps(10) infinite;
+        }
+
+        @keyframes typing {
+            40%, 60% {
+                left: calc(100% + 30px);
+            }
+            100% {
+                left: 0;
+            }
+        }
+
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            border-radius: 30px;
+        }
+
+        .find-btn {
+            background-color: #11af46;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 30px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .find-btn:hover {
+            background-color: #0f9d3a;
+            transform: scale(1.05);
+        }
+
+        .find-btn:focus {
+            outline: 2px solid #0f9d3a;
+        }
+
+        .categories {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .styled-text {
+            background-color: #cccacae7;
+            color: rgb(65, 63, 63);
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 30px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .icons-container {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .fa {
+            font-size: 100px;
+            color: rgb(61, 60, 60);
+        }
+
+        .login-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #11af46;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #0f9d3a;
+        }
+
+        /* Chat Box Styles */
+        .chat-box {
+            position: absolute;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            max-height: 400px;
+            overflow-y: auto; /* Enable scrolling */
+        }
+
+        .chat-header {
+            background: #11af46;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .chat-messages {
+            padding: 10px;
+            flex-grow: 1;
+            overflow-y: auto; /* Enable scrolling for messages */
+        }
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            border: none;
+            padding: 10px;
+        }
+
+        .chat-input button {
+            background: #11af46;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Notification Styles */
+        .notification-icon {
+            position: absolute;
+            top: 20px;
+            left: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #11af46;
+        }
+
+        .notification-dropdown {
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: none; /* Initially hidden */
+            width: 250px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 100; /* Ensures it stays on top */
+        }
+
+        .notification-dropdown p {
+            padding: 10px;
+            margin: 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .notification-dropdown p:last-child {
+            border-bottom: none;
+        }
+
+        .scroll-container {
+            max-width: 450px;
+            height: 400px;
+            overflow-y: auto;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .mentor-card {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mentor-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mentor-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .mentor-header h3 {
+            margin: 0;
+            margin-right: 10px;
+        }
+
+        .mentor-rating {
+            display: flex;
+            align-items: center;
+            font-size: 0.9em;
+        }
+
+        .rating-icon {
+            color: gold;
+            margin-right: 3px;
+        }
+
+        .mentor-button {
+            background-color: #11af46;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .mentor-button:hover {
+            background-color: #0f9d3a;
+        }
+    </style>
+</head>
+<body>
+    <button class="login-btn">Login</button>
+    <div class="notification-icon" onclick="toggleNotification()">🔔</div>
+    <div class="notification-dropdown" id="notificationDropdown">
+        <p>New message from John</p>
+        <p>Your session with Anna starts in 15 minutes</p>
+    </div>
+
+    <div class="main">
+        <div class="top-text">Find Your Mentor</div>
+        <div class="content">
+            <span class="static-txt">Join Our Mentorship Program!</span>
+            <ul class="animation-txts">
+                <li><span>Learn from Experts</span></li>
+                <li><span>Get Personalized Guidance</span></li>
+                <li><span>Grow Your Skills</span></li>
+                <li><span>Expand Your Network</span></li>
+            </ul>
+        </div>
+
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search for mentors..." />
+            <button class="find-btn">Find a Mentor</button>
+        </div>
+
+        <div class="categories">
+            <span class="styled-text">Business</span>
+            <span class="styled-text">Technology</span>
+            <span class="styled-text">Health</span>
+            <span class="styled-text">Art</span>
+        </div>
+
+        <div class="scroll-container">
+            <div class="mentor-card">
+                <img src="https://via.placeholder.com/50" alt="Mentor" />
+                <div class="mentor-details">
+                    <div class="mentor-header">
+                        <h3>John Doe</h3>
+                        <button class="mentor-button">Connect</button>
+                    </div>
+                    <div class="mentor-rating">
+                        <span class="rating-icon">⭐</span> 4.8
+                    </div>
+                </div>
+            </div>
+            <div class="mentor-card">
+                <img src="https://via.placeholder.com/50" alt="Mentor" />
+                <div class="mentor-details">
+                    <div class="mentor-header">
+                        <h3>Jane Smith</h3>
+                        <button class="mentor-button">Connect</button>
+                    </div>
+                    <div class="mentor-rating">
+                        <span class="rating-icon">⭐</span> 4.5
+                    </div>
+                </div>
+            </div>
+            <!-- Add more mentor cards as needed -->
+        </div>
+
+        <div class="icons-container">
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-linkedin"></i>
+            <i class="fa fa-facebook"></i>
+        </div>
+    </div>
+
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">Chat</div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const chatBox = document.getElementById('chatBox');
+            chatBox.style.display = chatBox.style.display === 'none' || chatBox.style.display === '' ? 'flex' : 'none';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chatMessages');
+
+            if (input.value.trim() !== '') {
+                const newMessage = document.createElement('div');
+                newMessage.textContent = input.value;
+                messages.appendChild(newMessage);
+                input.value = '';
+                messages.scrollTop = messages.scrollHeight; // Scroll to the bottom
+            }
+        }
+
+        function toggleNotification() {
+            const dropdown = document.getElementById('notificationDropdown');
+            dropdown.style.display = dropdown.style.display === 'none' || dropdown.style.display === '' ? 'block' : 'none';
+        }
+
+        // Show chat box after a delay
+        setTimeout(() => {
+            document.getElementById('chatBox').style.display = 'flex';
+        }, 1000);
+    </script>
+</body>
+</html>

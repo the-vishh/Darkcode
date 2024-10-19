@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectMentor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: flex-end; /* Align content to the right */
+            align-items: flex-end; /* Align content to the bottom */
+            height: 100vh;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .mentor-list {
+            max-width: 390px;
+        }
+
+        .mentor-card {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mentor-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mentor-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .mentor-header h3 {
+            margin: 0;
+            margin-right: 10px;
+        }
+
+        .mentor-rating {
+            display: flex;
+            align-items: center;
+            font-size: 0.9em;
+        }
+
+        .rating-icon {
+            color: gold;
+            margin-right: 5px;
+        }
+
+        .mentor-techstack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            background-color: #e0e0e0;
+            font-size: 0.85em;
+            color: #333;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .scroll-container {
+            width: 415px;
+            height: 888px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .scroll-content {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 0;
+            animation: scrollUp 40s linear infinite;
+        }
+
+        @keyframes scrollUp {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <div class="mentor-list"> <!-- JavaScript will populate this area -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mentors = [
+            { name: 'Birmohan Singh', rating: '5.0', techStack: ['JavaScript', 'HTML', 'CSS'] },
+            { name: 'Damanpreet Singh', rating: '4.5', techStack: ['Python', 'Machine Learning'] },
+            { name: 'Singh Goraya', rating: '5.0', techStack: ['React', 'HTML', 'NodeJS'] },
+            { name: 'Manoj Sachan', rating: '5.0', techStack: ['Frontend', 'Javascript', 'Typescript'] },
+            { name: 'Amar Nath', rating: '4.9', techStack: ['Data Engineering', 'AWS', 'Data Analytics'] },
+            { name: 'Jagdeep Singh', rating: '5.0', techStack: ['Product Design', 'User Interface Design', 'UX/UI Design']},
+            { name: 'Manminder Singh', rating: '5.0', techStack: ['Azure', 'Cloud', 'Google Cloud']},
+            { name: 'Preetpal Kaur', rating: '4.8', techStack: ['Engineering', 'Interview', 'Interview prep']},
+            { name: 'Tajinder Singh', rating: '5.0', techStack: ['Deep Learning', 'Computer Vision', 'Python']},
+            { name: 'Utkarsh', rating: '5.0', techStack: ['UX Design', 'AI Ethics', 'Design Leadership']},
+            { name: 'Vinod Kumar', rating: '5.0', techStack: ['Interview Preparation', 'Resume Review', 'Salary Negotiation']},
+            { name: 'Jaspal Singh', rating: '5.0', techStack: ['Software Engineering', 'Data Structures', 'Java']},
+            { name: 'Rahul Gautam', rating: '5.0', techStack: ['Marketing Strategy', 'Market, Startup']},
+            { name: 'Sukhpreet Singh', rating: '5.0', techStack: ['Product', 'Marketplace', 'Entrepreneurship']},
+            { name: 'Vikash Kumar', rating: '5.0', techStack: ['Machine learning', 'Natural Language Processing', 'Computer Vision']},
+            { name: 'Jatinder Singh', rating: '5.0', techStack: ['AWS', 'Cloud', 'Distributed Systems']},
+            { name: 'Abhishek', rating: '5.0', techStack: ['Interview preparation', 'FAANG', 'Computer Vision']},
+            { name: 'Chinu', rating: '5.0', techStack: ['Computer Science', 'Software Architecture', 'Web Development']},
+            { name: 'Harbajan Singh', rating: '5.0', techStack: ['Research', 'Ethnographic', 'Survey']},
+            { name: 'Sakshi Bansal', rating: '5.0', techStack: ['Game Development', 'C++','C']},
+            { name: 'Sunita Rani', rating: '5.0', techStack: ['Leadership','Sales','Fundraising']},
+        ];
+
+        const mentorList = document.querySelector('.mentor-list');
+
+        mentors.forEach(mentor => {
+            const mentorCard = document.createElement('div');
+            mentorCard.classList.add('mentor-card');
+
+            const techStackHTML = mentor.techStack.map(tech => `<span class="tech-badge">${tech}</span>`).join('');
+
+            mentorCard.innerHTML = `
+                <div class="mentor-details">
+                    <div class="mentor-header">
+                        <h3>${mentor.name}</h3>
+                        <div class="mentor-rating">
+                            <span class="rating-icon">⭐</span>
+                            <span>${mentor.rating}</span>
+                        </div>
+                    </div>
+                    <div class="mentor-techstack">
+                        ${techStackHTML}
+                    </div>
+                </div>
+            `;
+
+            mentorList.appendChild(mentorCard);
+        });
+    </script>
+</body>
+</html>
