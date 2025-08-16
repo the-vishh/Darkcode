@@ -1,27 +1,37 @@
-# Mentorship Platform
+# QuantBot: Real-time Quant Trading Framework (Starter)
 
-**A project initiated during an online hackathon in October 2024, now open-source for further development and improvements.**
+QuantBot is a modular, event-driven starter framework for building real-time quant trading systems with advanced math-based signal generation, risk management, and execution. It ships with a synthetic real-time feed so you can run it immediately without credentials. Swap in live feeds/brokers later.
 
-**🚀 Project Overview**
+## Quickstart
 
-This is an open-source mentorship platform designed to connect mentors and mentees. The project originated from a 24-hour hackathon, where the focus was primarily on UX design using HTML, CSS, and Vanilla JavaScript.
+1) Install dependencies
 
-Although the initial version was not fully completed within the time frame, it served as a valuable learning experience in user experience design and front-end development. This repository is now open for contributions to refine, enhance, and scale the platform further.
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+```
 
-📌 Features (Planned & Existing)
+2) Run in synthetic live mode (no credentials needed)
 
-- ✔️ User-Friendly UX Design – Designed to ensure smooth navigation for mentors and mentees
+```bash
+python run_live.py --mode synthetic --symbol TEST --duration 60 --starting-cash 100000
+```
 
-- ✔️ Responsive Layout – Optimized for both mobile and desktop users
+3) Optional: Run with yfinance polling (minute-ish updates; not true RT)
 
-- ✔️ Profile Creation – Users can create mentor/mentee profiles (in progress)
+```bash
+python run_live.py --mode yfinance --symbol AAPL --duration 300 --starting-cash 100000 --poll-interval 5
+```
 
-- ✔️ Search & Filters – Easily find mentors based on expertise (planned)
+## Modules
+- `quantbot.feed`: Real-time data feeds (Synthetic, YFinance).
+- `quantbot.strategy`: Advanced signal generation (Kalman filter trend + regime switching).
+- `quantbot.risk`: Risk management (volatility targeting, drawdown guard, position sizing).
+- `quantbot.execution`: Simple execution router (market orders; easy to extend to TWAP/VWAP/POV).
+- `quantbot.broker`: Simulated broker with slippage & fees; plug in a real broker later.
+- `quantbot.portfolio`: Portfolio tracking with PnL and NAV.
+- `quantbot.engine`: Event loop tying everything together.
 
-- ✔️ Chat Integration – Real-time messaging between mentors and mentees (future scope)
-
-**🛠️ Tech Stack**
-
-Frontend: HTML, CSS, Vanilla JavaScript
-
-Future Enhancements: React, Firebase/Auth, Express.js (Community Suggestions Welcome)
+## Notes
+- This starter focuses on correctness and clarity, not raw performance. It is ready for extension and experimentation.
+- For real brokerage integration (e.g., Alpaca, IBKR), create new connectors in `quantbot.broker` and `quantbot.feed`.
